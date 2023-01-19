@@ -45,7 +45,9 @@ onMounted(() => {});
 }
 .bottom-bar {
   position: fixed;
+  width: 100%;
   bottom: 0;
+  left: 0;
 }
 .menu-icon {
   color: rgb(53, 84, 134);
