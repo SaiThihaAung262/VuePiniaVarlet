@@ -1,0 +1,11 @@
+$test: 10px;
+
+[theme="light"] {
+  //Add light theme colors here
+  --home-bg: #f1eded;
+}
+
+[theme="dark"] {
+  //Add dark theme colors here
+  --home-bg: rgba(31, 33, 37, 1);
+}
