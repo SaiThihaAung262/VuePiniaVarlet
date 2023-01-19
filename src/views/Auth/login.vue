@@ -1,19 +1,18 @@
 <template>
   <div class="login">
     <div class="login-con">
-      <van-button type="primary" size="small" @click="loginHandler">
+      <var-button type="primary" size="small" @click="loginHandler">
         Login
-      </van-button>
+      </var-button>
     </div>
-
   </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, toRefs, reactive, onMounted, computed} from "vue";
-import {useHomeStore} from "../../store/useHomeStore";
-import {LoginData} from "../../types/index";
-import {useUserStore} from "../../store/useUserStore";
+import { defineComponent, toRefs, reactive, onMounted, computed } from "vue";
+import { useHomeStore } from "../../store/useHomeStore";
+import { LoginData } from "../../types/index";
+import { useUserStore } from "../../store/useUserStore";
 
 export default defineComponent({
   name: "login",
@@ -24,7 +23,6 @@ export default defineComponent({
     let homeStore = useHomeStore();
     let userStore = useUserStore();
     const state = reactive({});
-
 
     const loginHandler = () => {
       let data: LoginData = {
@@ -37,8 +35,7 @@ export default defineComponent({
       });
     };
 
-    onMounted(() => {
-    });
+    onMounted(() => {});
     return {
       ...toRefs(state),
       loginHandler,
