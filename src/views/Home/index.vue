@@ -3,11 +3,17 @@
     <NavBar :title="t('tabbar.home')" :left-arrow="false">
     </NavBar>
     <br/>
-    <div v-for="(item, index) in articleList" :key="index">
-      <p v-html="item.content"/>
-      <br/>
+    <div v-if="loading">
+      <var-skeleton :loading="loading">Loading Data</var-skeleton>
+      \
     </div>
-    <div>total article is : {{ totalArticle }}</div>
+    <div v-else>
+      <div v-for="(item, index) in articleList" :key="index">
+        <p v-html="item.content"/>
+        <br/>
+      </div>
+      <div>total article is : {{ totalArticle }}</div>
+    </div>
     <br/>
   </div>
 </template>
@@ -30,6 +36,7 @@ export default defineComponent({
     const state = reactive({
       articleList: [] as ArticleInfo[],
       totalArticle: 0,
+      loading: false
     });
 
     const setStyle = () => {
@@ -43,10 +50,13 @@ export default defineComponent({
 
     const getHomeArticleList = () => {
       LoadingBar.start()
+      state.loading = true
       homeStore.getArticleData().then((res) => {
         state.articleList = res.list;
         state.totalArticle = res.total;
         LoadingBar.finish()
+        state.loading = false
+
       });
     };
 

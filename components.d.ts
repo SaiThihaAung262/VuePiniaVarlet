@@ -20,5 +20,6 @@ declare module '@vue/runtime-core' {
     VarIcon: typeof import('@varlet/ui')['_IconComponent']
     VarRadio: typeof import('@varlet/ui')['_RadioComponent']
     VarRadioGroup: typeof import('@varlet/ui')['_RadioGroupComponent']
+    VarSkeleton: typeof import('@varlet/ui')['_SkeletonComponent']
   }
 }
