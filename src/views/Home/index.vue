@@ -1,11 +1,10 @@
 <template>
   <div class="home">
-    <NavBar :title="t('tabbar.home')" :left-arrow="false">
+    <NavBar :left-arrow="false" :title="t('tabbar.home')">
     </NavBar>
     <br/>
     <div v-if="loading">
       <var-skeleton :loading="loading">Loading Data</var-skeleton>
-      \
     </div>
     <div v-else>
       <div v-for="(item, index) in articleList" :key="index">
@@ -19,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, toRefs, reactive, onMounted, computed} from "vue";
+import {defineComponent, onMounted, reactive, toRefs} from "vue";
 import {useHomeStore} from "../../store/useHomeStore";
 import {ArticleInfo} from "../../types/index";
 import NavBar from "./../../components/NavBar/index.vue"
