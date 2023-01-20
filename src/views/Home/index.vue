@@ -1,46 +1,61 @@
 <template>
   <div class="home">
-    <br />
-    <br />
-    <br />
+    <NavBar :title="t('tabbar.home')" :left-arrow="false">
+    </NavBar>
+    <br/>
     <div v-for="(item, index) in articleList" :key="index">
-      <p v-html="item.content" />
-      <br />
+      <p v-html="item.content"/>
+      <br/>
     </div>
     <div>total article is : {{ totalArticle }}</div>
-    <br />
+    <br/>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, reactive, onMounted, computed } from "vue";
-import { useHomeStore } from "../../store/useHomeStore";
-import { ArticleInfo } from "../../types/index";
+import {defineComponent, toRefs, reactive, onMounted, computed} from "vue";
+import {useHomeStore} from "../../store/useHomeStore";
+import {ArticleInfo} from "../../types/index";
+import NavBar from "./../../components/NavBar/index.vue"
+import {useI18n} from "vue-i18n";
 
 export default defineComponent({
   name: "home",
   layout: "home",
-  components: {},
+  components: {NavBar},
 
   setup() {
+    const {t} = useI18n()
     let homeStore = useHomeStore();
     const state = reactive({
       articleList: [] as ArticleInfo[],
       totalArticle: 0,
     });
 
+    const setStyle = () => {
+      LoadingBar.mergeConfig({
+        top: "0",
+        color: "green",
+        height: "5",
+      })
+
+    }
+
     const getHomeArticleList = () => {
+      LoadingBar.start()
       homeStore.getArticleData().then((res) => {
         state.articleList = res.list;
         state.totalArticle = res.total;
+        LoadingBar.finish()
       });
     };
 
     onMounted(() => {
+      setStyle()
       getHomeArticleList();
     });
     return {
-      ...toRefs(state),
+      ...toRefs(state), t
     };
   },
 });

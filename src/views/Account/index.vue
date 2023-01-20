@@ -1,9 +1,10 @@
 <template>
   <div class="account">
     <h1>Hello I am account page</h1>
-    <var-button type="danger">Danger Button</var-button>
     <change-theme/>
     <change-lang/>
+    <br/>
+    <var-button loading type="danger">Danger Button</var-button>
   </div>
 </template>
 
@@ -16,8 +17,8 @@ import {
   computed,
   watch,
 } from "vue";
-import ChangeLang from "./Components/ChangeLang.vue";
-import ChangeTheme from "./Components/changeTheme.vue";
+import ChangeLang from "./../../components/ChangeLang/index.vue";
+import ChangeTheme from "./../../components/ChangeTheme/index.vue";
 
 export default defineComponent({
   name: "home",

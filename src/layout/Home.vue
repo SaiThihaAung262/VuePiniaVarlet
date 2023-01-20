@@ -2,7 +2,7 @@
   <div class="page-tab">
     <router-view />
   </div>
-  <var-bottom-navigation v-model:active="active" class="bottom-bar">
+  <var-bottom-navigation v-model:active="active" class="bottom-bar" active-color="#344568">
     <var-bottom-navigation-item
       :to="route.path"
       v-for="(route, index) in homeRouters"

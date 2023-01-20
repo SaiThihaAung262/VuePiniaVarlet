@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import {changeLang} from "../../../locales/i18n";
+import {changeLang} from "../../locales/i18n";
 import {reactive, watch} from "vue";
 import {useI18n} from "vue-i18n";
 import {useHomeStore} from "/@/store/useHomeStore.ts";
@@ -33,8 +33,7 @@ watch(() => state.language,
 </script>
 <style lang="scss" scoped>
 .change-lang-con {
-  margin-top: px2rem(40);
-
+  margin-top: px2rem(50);
   .title {
     font-weight: 300;
     font-size: px2rem(50);
