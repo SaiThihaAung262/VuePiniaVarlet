@@ -2,7 +2,8 @@
   <div class="account">
     <h1>Hello I am account page</h1>
     <var-button type="danger">Danger Button</var-button>
-    <ChangeTheme />
+    <change-theme/>
+    <change-lang/>
   </div>
 </template>
 
@@ -15,20 +16,21 @@ import {
   computed,
   watch,
 } from "vue";
-
+import ChangeLang from "./Components/ChangeLang.vue";
 import ChangeTheme from "./Components/changeTheme.vue";
 
 export default defineComponent({
   name: "home",
   layout: "home",
   components: {
-    ChangeTheme,
+    ChangeTheme, ChangeLang
   },
 
   setup() {
     const state = reactive({});
 
-    onMounted(() => {});
+    onMounted(() => {
+    });
     return {
       ...toRefs(state),
     };
