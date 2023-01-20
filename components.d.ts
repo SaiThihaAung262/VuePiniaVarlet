@@ -21,5 +21,6 @@ declare module '@vue/runtime-core' {
     VarRadio: typeof import('@varlet/ui')['_RadioComponent']
     VarRadioGroup: typeof import('@varlet/ui')['_RadioGroupComponent']
     VarSkeleton: typeof import('@varlet/ui')['_SkeletonComponent']
+    VarSnackbar: typeof import('@varlet/ui')['_SnackbarComponent']
   }
 }
