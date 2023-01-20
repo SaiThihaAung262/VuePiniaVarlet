@@ -7,10 +7,15 @@
       :to="route.path"
       v-for="(route, index) in homeRouters"
       :key="index"
-      :label="route.name"
-      :icon="route.meta.icon"
       @click="handleClickTabs(route.path)"
-    />
+    >
+      <template #default>
+        {{ t(route.meta.title) }}
+      </template>
+      <template #icon>
+        <var-icon :name="route.meta.icon" />
+      </template>
+    </var-bottom-navigation-item>
   </var-bottom-navigation>
 </template>
 

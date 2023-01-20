@@ -12,5 +12,7 @@ declare module '@vue/runtime-core' {
     VarBottomNavigation: typeof import('@varlet/ui')['_BottomNavigationComponent']
     VarBottomNavigationItem: typeof import('@varlet/ui')['_BottomNavigationItemComponent']
     VarButton: typeof import('@varlet/ui')['_ButtonComponent']
+    VarCheckbox: typeof import('@varlet/ui')['_CheckboxComponent']
+    VarIcon: typeof import('@varlet/ui')['_IconComponent']
   }
 }
