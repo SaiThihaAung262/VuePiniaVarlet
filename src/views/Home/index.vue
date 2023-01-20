@@ -44,9 +44,7 @@ export default defineComponent({
         color: "green",
         height: "5",
       })
-
     }
-
     const getHomeArticleList = () => {
       LoadingBar.start()
       state.loading = true
