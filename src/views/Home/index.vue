@@ -17,27 +17,41 @@
             <div>total article is : {{ totalArticle }}</div>
         </div>
         <br/>
-        <var-space :size="[20, 20]">
-            <var-button>Button1</var-button>
-            <var-button>Button2</var-button>
-            <var-button>Button3</var-button>
-            <var-button>Button4</var-button>
-            <var-button>Button5</var-button>
-            <var-button>Button6</var-button>
-        </var-space>
-        <var-row>
-            <var-col :span="8" style="text-align: center">span: 8</var-col>
-            <var-col :span="8">span: 8</var-col>
-            <var-col :span="8">span: 8</var-col>
-            <var-col :span="8">span: 8</var-col>
-            <var-col :span="8">span: 8</var-col>
-            <var-col :span="8">span: 8</var-col>
-        </var-row>
+        <!--        <var-space :size="[20, 20]">-->
+        <!--            <var-button>Button1</var-button>-->
+        <!--            <var-button>Button2</var-button>-->
+        <!--            <var-button>Button3</var-button>-->
+        <!--            <var-button>Button4</var-button>-->
+        <!--            <var-button>Button5</var-button>-->
+        <!--            <var-button>Button6</var-button>-->
+        <!--        </var-space>-->
+        <!--        <var-row>-->
+        <!--            <var-col :span="8" style="text-align: center">span: 8</var-col>-->
+        <!--            <var-col :span="8">span: 8</var-col>-->
+        <!--            <var-col :span="8">span: 8</var-col>-->
+        <!--            <var-col :span="8">span: 8</var-col>-->
+        <!--            <var-col :span="8">span: 8</var-col>-->
+        <!--            <var-col :span="8">span: 8</var-col>-->
+        <!--        </var-row>-->
+
+        <var-list
+                v-model:loading="loading"
+                :finished="finished"
+                finished-text="No-more"
+                loading-text="Loading"
+                @load="load"
+
+        >
+            <var-cell v-for="item in list" :key="item">
+                List Item: {{ item }}
+            </var-cell>
+        </var-list>
     </div>
 </template>
 
 <script lang="ts">
-import {defineComponent, onMounted, reactive, toRefs} from "vue";
+import type {Ref} from 'vue'
+import {defineComponent, onMounted, reactive, ref, toRefs} from "vue";
 import {useHomeStore} from "../../store/useHomeStore";
 import {ArticleInfo} from "../../types/index";
 import NavBar from "./../../components/NavBar/index.vue";
@@ -75,6 +89,24 @@ export default defineComponent({
             });
         };
 
+        const loading: Ref<boolean> = ref(false)
+        const finished: Ref<boolean> = ref(false)
+        const list: Ref<any[]> = ref([])
+
+        const load = () => {
+            setTimeout(() => {
+                for (let i = 0; i < 20; i++) {
+                    list.value.push(list.value.length + 1)
+                }
+
+                loading.value = false
+
+                if (list.value.length >= 60) {
+                    finished.value = true
+                }
+            }, 1000)
+        }
+
         onMounted(() => {
             setStyle();
             getHomeArticleList();
@@ -82,6 +114,10 @@ export default defineComponent({
         return {
             ...toRefs(state),
             t,
+            load,
+            loading,
+            finished,
+            list,
         };
     },
 });
@@ -114,10 +150,10 @@ export default defineComponent({
     padding: px2rem(10);
     //transform: translateX(-150%);
     transform: scale(0);
-    animation: my-ariticle-animate 0.7s forwards;
+    animation: my-article-animate 0.7s forwards;
   }
 
-  @keyframes my-ariticle-animate {
+  @keyframes my-article-animate {
     from {
       //transform: translateX(-150%);
       transform: scale(0);
