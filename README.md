@@ -37,9 +37,9 @@ npm run build
 ### 5 To add production mode
 
 -
-    1. create a file .env.production
+    1. create a file ".env.production"
 -
-    2. go to the package.json
+    2. go to the "package.json"
 -
     3. Change the title or host that you will use in production
 -
