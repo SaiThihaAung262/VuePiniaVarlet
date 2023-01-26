@@ -2,12 +2,12 @@
     <div class="page-tab">
         <router-view/>
     </div>
-    <var-bottom-navigation v-model:active="active" :fixed="true" active-color="#344568" class="bottom-bar"
-                           inactive-color="#969696">
+    <var-bottom-navigation v-model:active="active" :fixed="true" active-color="#344568"
+                           class="bottom-bar" inactive-color="#969696">
         <var-bottom-navigation-item
                 v-for="(route, index) in homeRouters"
                 :key="index"
-                :to="route.path"
+                v-ripple="{ disabled: true }"
                 @click="handleClickTabs(route.path)"
         >
             <template #default>

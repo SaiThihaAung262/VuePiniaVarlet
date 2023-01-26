@@ -28,8 +28,41 @@ npm run dev
 
 ### 4 To build
 
+##### To build development
+
 ```
 npm run build
+```
+
+### 5 To add production mode
+
+-
+    1. create a file .env.production
+
+-
+    2. go to the package.json
+-
+
+    3. Change the title or host that you will use in production
+
+-
+    4. add this in "scripts"
+
+```
+"dev": "cross-env vite --mode development",
+"build": "cross-env vite build --mode development",
+```
+
+#### To run production mode
+
+```
+npm run dev:prod
+```
+
+#### To build production mode
+
+```
+npm run build:prod
 ```
 
 ### If have something can't import third party component

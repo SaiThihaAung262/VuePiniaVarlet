@@ -28,4 +28,7 @@ declare module '@vue/runtime-core' {
     VarSnackbar: typeof import('@varlet/ui')['_SnackbarComponent']
     VarSpace: typeof import('@varlet/ui')['_SpaceComponent']
   }
+  export interface ComponentCustomProperties {
+    vRipple: typeof import('@varlet/ui')['_RippleComponent']
+  }
 }
