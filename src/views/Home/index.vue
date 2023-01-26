@@ -88,7 +88,6 @@ export default defineComponent({
                 state.loading = false;
             });
         };
-
         const loading: Ref<boolean> = ref(false)
         const finished: Ref<boolean> = ref(false)
         const list: Ref<any[]> = ref([])
