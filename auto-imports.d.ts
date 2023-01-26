@@ -2,5 +2,4 @@
 export {}
 declare global {
   const LoadingBar: typeof import('@varlet/ui')['LoadingBar']
-  const Snackbar: typeof import('@varlet/ui')['Snackbar']
 }

@@ -17,10 +17,13 @@ declare module '@vue/runtime-core' {
     VarBottomNavigationItem: typeof import('@varlet/ui')['_BottomNavigationItemComponent']
     VarButton: typeof import('@varlet/ui')['_ButtonComponent']
     VarCheckbox: typeof import('@varlet/ui')['_CheckboxComponent']
+    VarCol: typeof import('@varlet/ui')['_ColComponent']
     VarIcon: typeof import('@varlet/ui')['_IconComponent']
     VarRadio: typeof import('@varlet/ui')['_RadioComponent']
     VarRadioGroup: typeof import('@varlet/ui')['_RadioGroupComponent']
+    VarRow: typeof import('@varlet/ui')['_RowComponent']
     VarSkeleton: typeof import('@varlet/ui')['_SkeletonComponent']
     VarSnackbar: typeof import('@varlet/ui')['_SnackbarComponent']
+    VarSpace: typeof import('@varlet/ui')['_SpaceComponent']
   }
 }
