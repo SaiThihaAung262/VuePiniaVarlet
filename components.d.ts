@@ -20,6 +20,7 @@ declare module '@vue/runtime-core' {
     VarCheckbox: typeof import('@varlet/ui')['_CheckboxComponent']
     VarCol: typeof import('@varlet/ui')['_ColComponent']
     VarIcon: typeof import('@varlet/ui')['_IconComponent']
+    VarInput: typeof import('@varlet/ui')['_InputComponent']
     VarList: typeof import('@varlet/ui')['_ListComponent']
     VarRadio: typeof import('@varlet/ui')['_RadioComponent']
     VarRadioGroup: typeof import('@varlet/ui')['_RadioGroupComponent']

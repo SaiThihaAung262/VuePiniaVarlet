@@ -10,10 +10,10 @@ import { post, get } from "./axios/reques";
 //   return get("/articles", params);
 // }
 
-export const getArticles = () => {
-  return post("/articles");
-};
-
 export const login = (data: any) => {
   return post("/users/login", data);
+};
+
+export const askQuestion = (data: any) => {
+  return post("/openai/ask", data);
 };
