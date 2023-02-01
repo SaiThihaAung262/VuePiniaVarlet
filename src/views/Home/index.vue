@@ -53,6 +53,7 @@ export default defineComponent({
         question: "",
       },
       answer: "",
+      isSearch: false,
     });
 
     const setStyle = () => {
@@ -64,6 +65,8 @@ export default defineComponent({
     };
 
     const searchQuestion = () => {
+      if (state.isSearch) return;
+      state.isSearch = true;
       LoadingBar.start();
       state.loading = true;
       homeStore.searchQuestion(state.form).then((res) => {
@@ -71,6 +74,7 @@ export default defineComponent({
         if (res.err_code == 0) {
           state.answer = res.data;
           state.loading = false;
+          state.isSearch = false;
           LoadingBar.finish();
         }
       });
