@@ -23,7 +23,8 @@
       </div>
 
       <div class="question-con" v-else>
-        <p class="answer">{{ answer }}</p>
+        <p class="answer" v-html="answer"></p>
+        <!-- <p class="answer">{{ answer }}</p> -->
       </div>
     </div>
   </div>
