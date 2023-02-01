@@ -36,7 +36,4 @@ export default defineComponent({
 });
 </script>
 
-<style lang="scss" scoped>
-.account {
-}
-</style>
+<style lang="scss" scoped></style>
