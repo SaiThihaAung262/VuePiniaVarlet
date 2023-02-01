@@ -25,7 +25,6 @@
 
       <div class="question-con" v-else>
         <p class="answer" v-html="answer"></p>
-        <!-- <p class="answer">{{ answer }}</p> -->
       </div>
     </div>
   </div>
@@ -73,7 +72,7 @@ export default defineComponent({
       homeStore.searchQuestion(state.form).then((res) => {
         console.log(res);
         if (res.err_code == 0) {
-          state.answer = res.data;
+          state.answer = res.data.answer;
           state.loading = false;
           state.isSearch = false;
           LoadingBar.finish();
