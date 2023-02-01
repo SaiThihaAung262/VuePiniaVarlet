@@ -13,6 +13,7 @@
           class="search-btn"
           @click="searchQuestion"
           round
+          :disabled="form.question == ''"
         >
           <var-icon name="magnify-plus-outline" />
         </var-button>
@@ -31,7 +32,6 @@
 </template>
 
 <script lang="ts">
-import type { Ref } from "vue";
 import { defineComponent, onMounted, reactive, ref, toRefs } from "vue";
 import { useHomeStore } from "../../store/useHomeStore";
 import { ArticleInfo } from "../../types/index";
