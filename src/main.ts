@@ -7,7 +7,8 @@ import i18n from "./locales/i18n";
 const app = createApp(App);
 
 setupRouter(app);
-app.use(i18n);
 app.use(pinia);
+
+app.use(i18n);
 
 app.mount("#app");
