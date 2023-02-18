@@ -6,7 +6,7 @@ export default class BaseHttpService extends AxiosService {
   /**
    * @Get_service
    */
-  async get(endpoint: string, params?: any): Promise<ResponseData> {
+  async get(endpoint: string, params?: any): Promise<ResponseData | any> {
     let paramsData = {};
     if (params && params.page && params.page_size) {
       const data = cloneDeep(params);
@@ -28,7 +28,7 @@ export default class BaseHttpService extends AxiosService {
   /**
    * @Post_service
    */
-  async post(endpoint: string, params?: any): Promise<ResponseData> {
+  async post(endpoint: string, params?: any): Promise<ResponseData | any> {
     let postData = {};
     if (params && params.page && params.pageSize) {
       const data = cloneDeep(params);
