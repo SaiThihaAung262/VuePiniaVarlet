@@ -1,4 +1,4 @@
-import AxiosService from "./axios-service";
+import AxiosService from "./axios.service";
 import { cloneDeep, omit, assign } from "lodash-es";
 import { ResponseData } from "../../types";
 
