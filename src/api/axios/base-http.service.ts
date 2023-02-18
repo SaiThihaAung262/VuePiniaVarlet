@@ -3,6 +3,9 @@ import { cloneDeep, omit, assign } from "lodash-es";
 import { ResponseData } from "../../types";
 
 export default class BaseHttpService extends AxiosService {
+  /**
+   * @Get_service
+   */
   async get(endpoint: string, params?: any): Promise<ResponseData> {
     let paramsData = {};
     if (params && params.page && params.page_size) {
@@ -22,6 +25,9 @@ export default class BaseHttpService extends AxiosService {
     return await this.service.get(endpoint, { params: paramsData });
   }
 
+  /**
+   * @Post_service
+   */
   async post(endpoint: string, params?: any): Promise<ResponseData> {
     let postData = {};
     if (params && params.page && params.pageSize) {

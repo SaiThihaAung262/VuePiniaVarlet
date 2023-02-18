@@ -1,7 +1,7 @@
 <template>
+  <NavBar :left-arrow="false" :title="t('tabbar.account')" />
   <div class="account">
     <var-snackbar v-model:show="showSnackbar"></var-snackbar>
-    <h1>Hello I am account page</h1>
     <change-theme />
     <change-lang />
     <br />
@@ -12,7 +12,9 @@
 import { defineComponent, onMounted, reactive, toRefs } from "vue";
 import ChangeLang from "./../../components/ChangeLang/index.vue";
 import ChangeTheme from "./../../components/ChangeTheme/index.vue";
+import NavBar from "./../../components/NavBar/index.vue";
 import { Snackbar } from "@varlet/ui";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "home",
@@ -21,9 +23,11 @@ export default defineComponent({
     ChangeTheme,
     ChangeLang,
     Snackbar,
+    NavBar,
   },
 
   setup() {
+    const { t } = useI18n();
     const state = reactive({
       showSnackbar: false,
     });
@@ -31,9 +35,14 @@ export default defineComponent({
     onMounted(() => {});
     return {
       ...toRefs(state),
+      t,
     };
   },
 });
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.account {
+  padding-top: px2rem(100);
+}
+</style>
