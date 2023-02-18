@@ -10,24 +10,24 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { changeLang } from "../../locales/i18n";
 import { reactive, watch } from "vue";
 import { useI18n } from "vue-i18n";
-import { useHomeStore } from "/@/store/useHomeStore.ts";
+import { useHomeStore } from "../../store/useHomeStore";
 
 const { t } = useI18n();
 let homeStore = useHomeStore();
 
 const state = reactive({
-  language: localStorage.getItem("lang") || en,
+  language: localStorage.getItem("lang") || "en",
 });
 
 watch(
   () => state.language,
   (newValue, oldValue) => {
     console.log("Here is state.changeLang", state.language);
-    changeLang(state.language);
+    changeLang(state.language as "en" | "cn");
     homeStore.setLanguage(state.language);
   }
 );

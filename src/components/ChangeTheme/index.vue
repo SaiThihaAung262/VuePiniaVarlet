@@ -21,9 +21,9 @@
   </div>
 </template>
 <!--<van-icon name="like-o" />-->
-<script setup>
+<script lang="ts" setup>
 import { onMounted, ref, watch } from "vue";
-import { useHomeStore } from "/@/store/useHomeStore.ts";
+import { useHomeStore } from "../../store/useHomeStore";
 
 const homeStore = useHomeStore();
 const mode = ref(
