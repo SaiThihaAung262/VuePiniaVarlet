@@ -36,6 +36,7 @@ import { useHomeStore } from "../../store/useHomeStore";
 import { ArticleInfo } from "../../types/index";
 import NavBar from "./../../components/NavBar/index.vue";
 import { useI18n } from "vue-i18n";
+import { ResponseData } from "../../types/index";
 
 export default defineComponent({
   name: "home",
