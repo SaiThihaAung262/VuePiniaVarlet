@@ -1,6 +1,6 @@
 import AxiosService from "./axios-service";
 import { cloneDeep, omit, assign } from "lodash-es";
-import { ResponseData } from "./../../types";
+import { ResponseData } from "../../types";
 
 export default class BaseHttpService extends AxiosService {
   async get(endpoint: string, params?: any): Promise<ResponseData> {
@@ -19,7 +19,7 @@ export default class BaseHttpService extends AxiosService {
     } else {
       paramsData = params;
     }
-    return this.service.get(endpoint, { params: paramsData });
+    return await this.service.get(endpoint, { params: paramsData });
   }
 
   async post(endpoint: string, params?: any): Promise<ResponseData> {
@@ -42,6 +42,6 @@ export default class BaseHttpService extends AxiosService {
     } else {
       postData = params;
     }
-    return this.service.post(endpoint, postData);
+    return await this.service.post(endpoint, postData);
   }
 }
