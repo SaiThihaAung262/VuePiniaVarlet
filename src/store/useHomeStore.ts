@@ -14,7 +14,6 @@ export const useHomeStore = defineStore("home-store", {
     };
   },
   actions: {
-    //Promise<ResponseData | AxiosResponse<any, any>>
     async searchQuestion(data: any): Promise<ResponseData> {
       return await homeService.askQuestion(data);
     },
